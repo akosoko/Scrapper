@@ -21,8 +21,6 @@ var port = process.env.PORT || 3000
 // Initialize Express
 var app = express();
 
-// Use ayanna and body parser with our app
-app.use(logger("dev"));
 app.use(bodyParser.urlencoded({
   extended: false
 }));
