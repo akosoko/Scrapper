@@ -1,7 +1,6 @@
 // Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
-var logger = require("ayanna");
 var mongoose = require("mongoose");
 var path = require("path");
 
@@ -41,7 +40,8 @@ app.engine("handlebars", expressHandlebars({
 app.set("view engine", "handlebars");
 
 // Database configuration with mongoose
-mongoose.connect("");
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.connect(MONGODB_URI);
 //mongoose.connect("mongodb://localhost/mongoscraper");
 var db = mongoose.connection;
 
