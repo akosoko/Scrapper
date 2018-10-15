@@ -41,12 +41,12 @@ app.engine("handlebars", exphbs({
 app.set("view engine", "handlebars");
 
 // Database configuration with mongoose
-mongoose.connect('mongodb://localhost:27017/NYTimes', { useNewUrlParser: true }).then(() => {
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }).then(() => {
     console.log("Connected to Database");
     }).catch((err) => {
         console.log("Not Connected to Database ERROR! ", err);
     });
-//mongoose.connect("mongodb://localhost/mongoscraper");
+
 var db = mongoose.connection;
 
 // Show any mongoose errors
